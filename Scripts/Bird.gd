@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @onready var birdSprite2D = $BirdSprite2D
+var isGroundMoving = false
 var isFlap = false
 var freeze = true
 var rotating = true
