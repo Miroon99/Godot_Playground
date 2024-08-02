@@ -14,6 +14,11 @@ config/name="Playground"
 run/main_scene="res://playable/playground.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 
+[autoload]
+
+Global="*res://global.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+
 [input]
 
 bird_push={

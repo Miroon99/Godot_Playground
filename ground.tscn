@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceamhkfq6de4x"]
+
+[ext_resource type="Texture2D" uid="uid://kdxn8h4vn48i" path="res://sprites/ground.png" id="1_3f5cx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubvd4"]
+size = Vector2(2310, 100)
+
+[node name="staticBody2D" type="StaticBody2D"]
+position = Vector2(0, 577)
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 2302.0
+offset_bottom = 126.0
+texture = ExtResource("1_3f5cx")
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1155, 76)
+shape = SubResource("RectangleShape2D_ubvd4")
