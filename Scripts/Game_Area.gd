@@ -19,7 +19,6 @@ const X_AXIS_BIRD_FLYING = 400
 
 func _ready():
 	screenSize = get_window().size
-	#newGame()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,6 +27,9 @@ func _process(delta):
 		if scroll >= screenSize.x:
 			scroll = 0
 		$Ground.position.x = -scroll
+		
+		if $Cannon.position.x > -60:
+			$Cannon.position.x = -scroll
 		
 		
 	if Input.is_action_just_pressed("cannon_fire"):
