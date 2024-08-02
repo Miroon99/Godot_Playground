@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://curcnwj0kecre"]
+
+[ext_resource type="Script" path="res://Scripts/Game_Area.gd" id="1_7uj0w"]
+[ext_resource type="PackedScene" uid="uid://c6mn2ij8k2fqt" path="res://playable/bird.tscn" id="2_k3gai"]
+[ext_resource type="Texture2D" uid="uid://kdxn8h4vn48i" path="res://sprites/ground.png" id="3_3ry00"]
+[ext_resource type="PackedScene" uid="uid://0v2sf6dingyr" path="res://playable/cannon.tscn" id="4_ktioi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubvd4"]
+size = Vector2(2310, 100)
+
+[node name="Game_Area" type="Node2D"]
+script = ExtResource("1_7uj0w")
+
+[node name="Bird" parent="." instance=ExtResource("2_k3gai")]
+visible = false
+position = Vector2(348, 414)
+
+[node name="Cannon" parent="." instance=ExtResource("4_ktioi")]
+position = Vector2(63, 544)
+
+[node name="staticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 577)
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="staticBody2D"]
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 2302.0
+offset_bottom = 126.0
+texture = ExtResource("3_3ry00")
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="staticBody2D"]
+position = Vector2(1155, 76)
+shape = SubResource("RectangleShape2D_ubvd4")
