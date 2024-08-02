@@ -3,7 +3,8 @@ extends CharacterBody2D
 var isFlap = false
 var falling_speed = 50 * 0
 var flap_speed = 80 * 0
-var freeze = false
+var freeze = true
+var rotating = true
 
 #reset position
 var default_position = Vector2(51, 296)
@@ -15,21 +16,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	cannon_rotation(delta)
 	
 func _input(event):
-	if event is InputEventKey and event.keycode == KEY_SPACE:
-		isFlap = event.is_pressed()
-		
 	if event is InputEventKey and event.keycode == KEY_R and event.pressed:
 		resetBird()
 		
 var gravity = 300
-var push_energy = 0
-var max_push_energy = 20
+var flap_energy = 0
+var max_flap_energy = 20
 var gradual_speed = 150
 func _physics_process(delta):
-	velocity.x = 100
+	handleCannonFire(delta)
 	handleGravity(delta)
 	handleFlap(delta)
 	
@@ -45,21 +43,44 @@ func handleFlap(delta):
 		freeze = false
 		isFlap = true
 		birdSprite2D.play("flap")
-		push_energy += gradual_speed * delta
-		push_energy = clamp(push_energy, 0, max_push_energy)
-		velocity.y -= push_energy
+		flap_energy += gradual_speed * delta
+		flap_energy = clamp(flap_energy, 0, max_flap_energy)
+		velocity.y -= flap_energy
 		
 	if Input.is_action_just_released("bird_push"):
 		isFlap = false
 		birdSprite2D.play("idle")
-		push_energy = 0
+		flap_energy = 0
 	
 func resetBird():
 	freeze = true
+	rotating = true
 	velocity = Vector2(0, 0)
 	rotation_degrees = default_rotation
 	position = default_position
-	
+
+var max_rotate = 90
+var min_rotate = -90
+var rotate_speed = 100
+var rotate_direction = 1
+func cannon_rotation(delta):
+	if rotating and freeze:
+		if rotation_degrees <= min_rotate:
+			rotate_direction = 1
+		elif rotation_degrees >= max_rotate:
+			rotate_direction = -1
+		
+		rotation_degrees += 50 * delta * rotate_direction
+
+var cannon_force = 1000
+func handleCannonFire(delta):
+	if Input.is_action_just_pressed("cannon_fire"):
+		freeze = false
+		rotating = false
+		var angle_radians = deg_to_rad(rotation_degrees)
+		var force_vector = Vector2(cos(angle_radians), sin(angle_radians))
+		velocity = force_vector * cannon_force
+
 func handleGravity(delta):
 	if freeze:
 		return
