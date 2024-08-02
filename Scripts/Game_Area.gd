@@ -38,13 +38,6 @@ func _process(delta):
 		add_child(player)
 		move_child(player, 0)
 		player.flyFromCannonFire(1000)
-
-#func newGame():
-	#gameRunning = false
-	#gameOver = false
-	#score = 0
-	#scroll = 0
-	#$Bird.resetBird()
 	
 func moveGround():
 	gameRunning = true
