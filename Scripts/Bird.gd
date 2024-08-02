@@ -4,6 +4,7 @@ var isGroundMoving = false
 var isFlap = false
 var freeze = true
 var rotating = true
+var velocityCopy: Vector2
 
 #reset position
 var default_position = Vector2(51, 296)
@@ -29,7 +30,8 @@ func _physics_process(delta):
 	handleFlap(delta)
 	
 	#velocity.y = clamp(velocity.y, -400, 500)
-	look_at(transform.origin + velocity)
+	#look_at(transform.origin + velocity)
+		
 	move_and_slide()
 
 func handleFlap(delta):
