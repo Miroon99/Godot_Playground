@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://c6mn2ij8k2fqt"]
 
-[ext_resource type="Script" path="res://Bird.gd" id="1_0b1xd"]
+[ext_resource type="Script" path="res://Scripts/Bird.gd" id="1_7ls73"]
 [ext_resource type="Texture2D" uid="uid://bmsh4afiwd76x" path="res://sprites/bird_sprites/frame-1.png" id="2_e3pki"]
 [ext_resource type="Texture2D" uid="uid://b41yjdtsw0sd3" path="res://sprites/bird_sprites/frame-2.png" id="3_o8gx8"]
 [ext_resource type="Texture2D" uid="uid://c8r2t3032rfg7" path="res://sprites/bird_sprites/frame-3.png" id="4_uipu8"]
@@ -55,7 +55,7 @@ radius = 28.0
 
 [node name="Bird" type="CharacterBody2D"]
 position = Vector2(51, 300)
-script = ExtResource("1_0b1xd")
+script = ExtResource("1_7ls73")
 
 [node name="BirdSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
