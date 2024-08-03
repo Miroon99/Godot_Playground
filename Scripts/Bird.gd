@@ -39,7 +39,7 @@ func handleFlap(delta):
 		flap_energy += gradual_speed * delta
 		flap_energy = clamp(flap_energy, 0, max_flap_energy)
 		velocity.y -= flap_energy
-		velocity.x += 10 * delta
+		velocity.x += 100 * delta
 		velocity.x = clamp(velocity.x, 0, 1000)
 		
 	if Input.is_action_just_released("bird_push"):
@@ -60,5 +60,8 @@ func handleGravity(delta):
 	elif play:
 		dead = true
 		play = false
+	elif !play:
+		velocity.x = move_toward(velocity.x, 0, 10)	
+		
 		
 	
