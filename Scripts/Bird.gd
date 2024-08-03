@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var birdSprite2D = $BirdSprite2D
 var isGroundMoving = false
 var isFlap = false
+var coinsCollected: int = 0
 
 #reset position
 var default_position = Vector2(51, 296)
@@ -73,3 +74,7 @@ func handleGravity(delta):
 func addEnergy(amount):
 	currentEnergy += amount
 	energyChanged.emit(currentEnergy)
+		
+func collectCoin(count: int):
+	coinsCollected += count
+	get_parent().updateCollectedCoin(coinsCollected)
