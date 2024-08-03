@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b56dt2llxdxmm"]
+[gd_scene load_steps=8 format=3 uid="uid://d34licv2o0s87"]
 
 [ext_resource type="Texture2D" uid="uid://ry4vlepxfdxy" path="res://assets/backgrounds/PNG/Separated Backgrounds/Background-Ice/Background.png" id="1_w7gjm"]
 [ext_resource type="Texture2D" uid="uid://kdxn8h4vn48i" path="res://sprites/ground.png" id="2_ayp7l"]
