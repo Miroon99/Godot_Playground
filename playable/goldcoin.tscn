@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvjrp4n2lxx0c"]
+[gd_scene load_steps=20 format=3 uid="uid://btxl0tnlcik1j"]
 
 [ext_resource type="Script" path="res://Scripts/GoldCoin.gd" id="1_onrby"]
 [ext_resource type="Texture2D" uid="uid://jq8by2lmempc" path="res://sprites/gold_coin/coin3_16x16.png" id="2_awe2x"]
 [ext_resource type="AudioStream" uid="uid://bf7v2kf4sdimy" path="res://assets/audio/sfx/pickupCoin1.wav" id="3_yqmqk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ajnd6"]
-radius = 9.0
+radius = 28.0179
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnbgd"]
 atlas = ExtResource("2_awe2x")
@@ -120,7 +120,7 @@ script = ExtResource("1_onrby")
 shape = SubResource("CircleShape2D_ajnd6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.25, 0.25)
+position = Vector2(3.8147e-06, 0)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_vlekv")
 
