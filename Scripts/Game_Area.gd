@@ -10,12 +10,11 @@ var ground_obj = preload("res://playable/ground.tscn")
 
 @onready var cannon = $Cannon
 @onready var main_camera = $Camera2D
+@onready var coinCountLabel = $CanvasLayer/Label
 
 var gameRunning: bool
 var gameOver: bool
 var scroll = 0
-var score = 0
-var SCROLL_SPEED: int = 3
 var screenSize: Vector2i
 var groundHeight: int
 var currentGround: Node
@@ -24,13 +23,10 @@ var futureGround: Node
 
 var goldCoin = preload("res://playable/goldcoin.tscn")
 
-const PIPE_DELAY: int = 100
-const PIPE_RANGE: int = 200
-const X_AXIS_BIRD_FLYING = 400
-
 func _ready():
 	screenSize = get_window().size
 	addGround()
+	coinCountLabel.text = "--- "
 	
 func addGround():
 	const bottomScreenY = 622
@@ -51,6 +47,9 @@ func addGround():
 func moveGroundForward(counter):
 	pass
 
+func updateCollectedCoin(count: int):
+	coinCountLabel.text = "%d " % count
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	handleMainCamera()
