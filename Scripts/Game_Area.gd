@@ -19,7 +19,6 @@ var currentGround: Node
 var upcomingGround: Node
 var futureGround: Node
 
-
 var gold_coin2 = preload("res://playable/goldcoin.tscn")
 var currentGoldCoin: Node
 var upcomingGoldCoin: Node

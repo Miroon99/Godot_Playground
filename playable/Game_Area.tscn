@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8bgdrxhwv25j"]
+[gd_scene load_steps=5 format=3 uid="uid://3ilkbjfoeka4"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Area.gd" id="1_7uj0w"]
+[ext_resource type="PackedScene" uid="uid://fql7x51ardor" path="res://playable/parallax_scrolling_scene.tscn" id="2_hc7ax"]
 [ext_resource type="PackedScene" uid="uid://c6mn2ij8k2fqt" path="res://playable/bird.tscn" id="2_k3gai"]
-[ext_resource type="PackedScene" path="res://playable/cannon.tscn" id="4_ktioi"]
+[ext_resource type="PackedScene" uid="uid://0v2sf6dingyr" path="res://playable/cannon.tscn" id="4_ktioi"]
 
 [node name="Game_Area" type="Node2D"]
 script = ExtResource("1_7uj0w")
+
+[node name="ParallaxScrollingScene" parent="." instance=ExtResource("2_hc7ax")]
 
 [node name="Bird" parent="." instance=ExtResource("2_k3gai")]
 visible = false
