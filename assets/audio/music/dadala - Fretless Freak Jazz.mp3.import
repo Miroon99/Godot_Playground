@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gqawocejfvk1"
+path="res://.godot/imported/dadala - Fretless Freak Jazz.mp3-8846ddb757c2e37586f623d658bb0840.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/dadala - Fretless Freak Jazz.mp3"
+dest_files=["res://.godot/imported/dadala - Fretless Freak Jazz.mp3-8846ddb757c2e37586f623d658bb0840.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
