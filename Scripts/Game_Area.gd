@@ -4,6 +4,7 @@ var player_obj = preload("res://playable/bird.tscn")
 var player = player_obj.instantiate()
 
 @onready var cannon = $Cannon
+@onready var main_camera = $Camera2D
 
 var gameRunning: bool
 var gameOver: bool
@@ -22,34 +23,32 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if gameRunning:
-		scroll += SCROLL_SPEED
-		if scroll >= screenSize.x:
-			scroll = 0
-		$Ground.position.x = -scroll
-		
-		if $Cannon.position.x > -60:
-			$Cannon.position.x = -scroll
-		
-		
+	handleMainCamera()
+	
 	if Input.is_action_just_pressed("cannon_fire"):
 		player.position = cannon.getPlayerSpawnPosition()
 		player.rotation = cannon.getBodyRotation()
 		add_child(player)
 		move_child(player, 0)
 		player.flyFromCannonFire(1000)
+		isGameStart = true
+
+var isGameStart = false
+func handleMainCamera():
+	if !isGameStart:
+		return
+
+	var camera_width = main_camera.get_viewport_rect().size.x
+	var camera_height = main_camera.get_viewport_rect().size.y
 	
-func moveGround():
-	gameRunning = true
+	var x_margin = 100
+	var camera_position_x = (player.global_position.x + camera_width * 0.5) - x_margin
 	
-func stopGround():
-	gameRunning = false
+	var max_camera_to_ground = ($Ground.global_position.y + 30) - camera_height * 0.5
+	var clamped_camera_position_y = clamp(player.global_position.y, player.global_position.y, max_camera_to_ground)
+	
+	main_camera.position = Vector2(camera_position_x, clamped_camera_position_y)
 
 func _physics_process(delta):
-	if player.position.x >= X_AXIS_BIRD_FLYING:
-		player.velocity.x = 0
-		moveGround()
-	
-	if player.is_on_floor():
-		stopGround()
+	pass
 
