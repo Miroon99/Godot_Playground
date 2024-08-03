@@ -19,6 +19,12 @@ var currentGround: Node
 var upcomingGround: Node
 var futureGround: Node
 
+
+var gold_coin2 = preload("res://playable/goldcoin.tscn")
+var currentGoldCoin: Node
+var upcomingGoldCoin: Node
+var futureGoldCoin: Node
+
 const PIPE_DELAY: int = 100
 const PIPE_RANGE: int = 200
 const X_AXIS_BIRD_FLYING = 400
@@ -41,6 +47,7 @@ func addGround():
 	add_child(currentGround)
 	add_child(upcomingGround)
 	add_child(futureGround)
+	
 	
 func moveGroundForward(counter):
 	pass
@@ -76,6 +83,7 @@ func handleMainCamera():
 func _physics_process(delta):
 	if main_camera.position.x > screenSize.length() + currentGround.position.x:
 		currentGround.position.x = futureGround.position.x + screenSize.length()
+		_generateCoins(currentGround.position.x)
 		var temporaryGround = futureGround
 		futureGround = currentGround
 		currentGround = upcomingGround
@@ -84,5 +92,13 @@ func _physics_process(delta):
 
 		print(main_camera.position.x)
 		
+func _generateCoins(coinX):
+	
+	for  i in range (6) :
+		var gold_coin = gold_coin2.instantiate()
+		var coin_rand_x = randf_range(coinX, coinX  + screenSize.length())
+		var coin_rand_y = randf_range(150,450)
+		gold_coin.position = Vector2(coin_rand_x,coin_rand_y)
+		add_child(gold_coin)
 
 
