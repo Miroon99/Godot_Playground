@@ -13,6 +13,7 @@ config_version=5
 config/name="Playground"
 run/main_scene="res://playable/Game_Area.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/bg_color=Color(0.133333, 0.615686, 0.94902, 1)
 
 [display]
 
@@ -34,3 +35,4 @@ cannon_fire={
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.133333, 0.615686, 0.94902, 1)
