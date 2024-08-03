@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://3ilkbjfoeka4"]
+[gd_scene load_steps=5 format=3 uid="uid://c8bgdrxhwv25j"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Area.gd" id="1_7uj0w"]
-[ext_resource type="PackedScene" uid="uid://mbm6s0n7oaf3" path="res://playable/parallax_scrolling_scene.tscn" id="2_hc7ax"]
+[ext_resource type="PackedScene" path="res://playable/parallax_scrolling_scene.tscn" id="2_hc7ax"]
 [ext_resource type="PackedScene" uid="uid://c6mn2ij8k2fqt" path="res://playable/bird.tscn" id="2_k3gai"]
 [ext_resource type="PackedScene" uid="uid://0v2sf6dingyr" path="res://playable/cannon.tscn" id="4_ktioi"]
 
@@ -13,9 +13,12 @@ script = ExtResource("1_7uj0w")
 [node name="Bird" parent="." instance=ExtResource("2_k3gai")]
 visible = false
 position = Vector2(348, 414)
+maxEnergy = 100
 
 [node name="Cannon" parent="." instance=ExtResource("4_ktioi")]
 position = Vector2(63, 544)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 327)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

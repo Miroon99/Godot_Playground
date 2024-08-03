@@ -7,7 +7,10 @@ var isFlap = false
 var default_position = Vector2(51, 296)
 var default_rotation = 0
 
-# Called when the node enters the scene tree for the first time.
+@export var maxEnergy = 100
+@onready var currentEnergy = maxEnergy
+signal energyChanged
+
 func _ready():
 	birdSprite2D.play("idle")
 	motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
@@ -30,8 +33,9 @@ func _physics_process(delta):
 	look_at(transform.origin + velocity)
 	move_and_slide()
 
+const energy_per_flap = 0.01
 func handleFlap(delta):
-	if dead:
+	if dead or currentEnergy <= 0:
 		return
 
 	if Input.is_action_pressed("bird_push"):
@@ -40,7 +44,9 @@ func handleFlap(delta):
 		flap_energy = clamp(flap_energy, 0, max_flap_energy)
 		velocity.y -= flap_energy
 		velocity.x += 100 * delta
-		velocity.x = clamp(velocity.x, 0, 1000)
+		velocity.x = clamp(velocity.x, 0, 600)
+		currentEnergy -= 10 * delta
+		addEnergy(-energy_per_flap)
 		
 	if Input.is_action_just_released("bird_push"):
 		birdSprite2D.play("idle")
@@ -57,11 +63,13 @@ var dead = false
 func handleGravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		velocity.y = clamp(velocity.y, -1500, 600)
 	elif play:
 		dead = true
 		play = false
 	elif !play:
 		velocity.x = move_toward(velocity.x, 0, 10)	
-		
-		
-	
+
+func addEnergy(amount):
+	currentEnergy += amount
+	energyChanged.emit(currentEnergy)

@@ -3,6 +3,9 @@ extends Node2D
 var player_obj = preload("res://playable/bird.tscn")
 var player = player_obj.instantiate()
 
+var energybar_obj = preload("res://UI/EnergyBarUI.tscn")
+var energybar = energybar_obj.instantiate()
+
 var ground_obj = preload("res://playable/ground.tscn")
 
 @onready var cannon = $Cannon
@@ -62,6 +65,9 @@ func _process(delta):
 		move_child(player, 0)
 		player.flyFromCannonFire(1000)
 		isGameStart = true
+		
+		energybar.attachPlayer(player)
+		$CanvasLayer.add_child(energybar)
 
 var isGameStart = false
 func handleMainCamera():
