@@ -88,9 +88,6 @@ func _physics_process(delta):
 		currentGround = upcomingGround
 		upcomingGround = temporaryGround
 		
-
-		print(main_camera.position.x)
-		
 func _generateCoins(coinX):
 	
 	for  i in range (6) :
