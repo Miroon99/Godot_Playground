@@ -13,7 +13,6 @@ script = ExtResource("1_7uj0w")
 [node name="Bird" parent="." instance=ExtResource("2_k3gai")]
 visible = false
 position = Vector2(348, 414)
-maxEnergy = 100
 
 [node name="Cannon" parent="." instance=ExtResource("4_ktioi")]
 position = Vector2(63, 544)
