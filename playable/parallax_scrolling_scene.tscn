@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://fql7x51ardor"]
+
+[ext_resource type="Texture2D" uid="uid://xrbwusv3e3jv" path="res://CloudsBackground/1.png" id="1_g0i2w"]
+[ext_resource type="Texture2D" uid="uid://qk52mi2fhx6j" path="res://CloudsBackground/2.png" id="2_bdgxd"]
+[ext_resource type="Texture2D" uid="uid://t4lxo8c4qwg3" path="res://CloudsBackground/4.png" id="3_rbrl1"]
+
+[node name="ParallaxScrollingScene" type="Node2D"]
+
+[node name="ParallaxBackgrounf" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackgrounf"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackgrounf/Sky"]
+texture_repeat = 3
+position = Vector2(578, 321)
+scale = Vector2(2.02083, 2.01852)
+texture = ExtResource("1_g0i2w")
+
+[node name="Blue Cloud" type="ParallaxLayer" parent="ParallaxBackgrounf"]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackgrounf/Blue Cloud"]
+texture_repeat = 3
+position = Vector2(580, 324)
+scale = Vector2(2.00694, 2.01235)
+texture = ExtResource("2_bdgxd")
+
+[node name="White Cloud" type="ParallaxLayer" parent="ParallaxBackgrounf"]
+motion_scale = Vector2(0.08, 0.08)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackgrounf/White Cloud"]
+texture_repeat = 3
+position = Vector2(574, 317)
+scale = Vector2(2.00694, 2)
+texture = ExtResource("3_rbrl1")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
