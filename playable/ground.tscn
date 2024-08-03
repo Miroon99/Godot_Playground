@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kdxn8h4vn48i" path="res://sprites/ground.png" id="1_atb3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkevm"]
-size = Vector2(2392.25, 62.5)
+size = Vector2(2392.25, 61.25)
 
 [node name="Ground" type="StaticBody2D"]
 script = ExtResource("1_8aigy")
@@ -25,4 +25,5 @@ stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.625)
 shape = SubResource("RectangleShape2D_rkevm")
