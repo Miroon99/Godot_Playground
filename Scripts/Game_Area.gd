@@ -19,10 +19,7 @@ var currentGround: Node
 var upcomingGround: Node
 var futureGround: Node
 
-var gold_coin2 = preload("res://playable/goldcoin.tscn")
-var currentGoldCoin: Node
-var upcomingGoldCoin: Node
-var futureGoldCoin: Node
+var goldCoin = preload("res://playable/goldcoin.tscn")
 
 const PIPE_DELAY: int = 100
 const PIPE_RANGE: int = 200
@@ -59,7 +56,7 @@ func _process(delta):
 		player.position = cannon.getPlayerSpawnPosition()
 		player.rotation = cannon.getBodyRotation()
 		add_child(player)
-		move_child(player, 0)
+		move_child(player, 1000)
 		player.flyFromCannonFire(1000)
 		isGameStart = true
 
@@ -89,12 +86,12 @@ func _physics_process(delta):
 		upcomingGround = temporaryGround
 		
 func _generateCoins(coinX):
-	
 	for  i in range (6) :
-		var gold_coin = gold_coin2.instantiate()
+		var gold_coin = goldCoin.instantiate()
 		var coin_rand_x = randf_range(coinX, coinX  + screenSize.length())
 		var coin_rand_y = randf_range(150,450)
 		gold_coin.position = Vector2(coin_rand_x,coin_rand_y)
 		add_child(gold_coin)
+		move_child(gold_coin, 1)
 
 
