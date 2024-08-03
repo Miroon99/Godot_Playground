@@ -14,5 +14,5 @@ func _process(delta):
 func _on_pressed():
 	$ButtonClickSound.play()
 	await $ButtonClickSound.finished
-	get_tree().change_scene_to_file("res://playable/playground.tscn")
+	get_tree().change_scene_to_file("res://playable/Game_Area.tscn")
 	pass # Replace with function body.

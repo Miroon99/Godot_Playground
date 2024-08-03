@@ -99,4 +99,3 @@ func _generateCoins(coinX):
 		add_child(gold_coin)
 		move_child(gold_coin, 1)
 
-
