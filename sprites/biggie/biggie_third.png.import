@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg3lmi63qbbmn"
-path="res://.godot/imported/biggie_third.png-87d2c12129073a81a79fbc7bf2fb6ce1.ctex"
+path="res://.godot/imported/biggie_third.png-695b08466f77a8fc94c8b620c7518e79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Biggie/biggie_third.png"
-dest_files=["res://.godot/imported/biggie_third.png-87d2c12129073a81a79fbc7bf2fb6ce1.ctex"]
+source_file="res://sprites/biggie/biggie_third.png"
+dest_files=["res://.godot/imported/biggie_third.png-695b08466f77a8fc94c8b620c7518e79.ctex"]
 
 [params]
 
