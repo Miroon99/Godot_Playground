@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jq8by2lmempc" path="res://sprites/gold_coin/coin3_16x16.png" id="2_awe2x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ajnd6"]
-radius = 9.0
+radius = 28.0179
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnbgd"]
 atlas = ExtResource("2_awe2x")
@@ -119,8 +119,8 @@ script = ExtResource("1_onrby")
 shape = SubResource("CircleShape2D_ajnd6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.25, 0.25)
-scale = Vector2(1.40625, 1.34375)
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_vlekv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
