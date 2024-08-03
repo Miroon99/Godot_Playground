@@ -12,7 +12,7 @@ func _process(delta):
 	cannon_rotation(delta)
 
 var min_rotate = -90
-var max_rotate = 40
+var max_rotate = 20
 var rotate_speed = 100
 var rotate_direction = 1
 func cannon_rotation(delta):
