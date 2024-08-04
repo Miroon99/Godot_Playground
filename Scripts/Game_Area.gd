@@ -35,12 +35,12 @@ func addGround():
 	const bottomScreenY = 622
 	currentGround = ground_obj.instantiate()
 	currentGround.position = Vector2(0,bottomScreenY)
-		
+	
 	upcomingGround = ground_obj.instantiate()
-	upcomingGround.position = Vector2(screenSize.length(),bottomScreenY)
+	upcomingGround.position = Vector2(currentGround.getEndPosition().x,bottomScreenY)
 	
 	futureGround = ground_obj.instantiate()
-	futureGround.position = Vector2(screenSize.length() * 2,bottomScreenY)
+	futureGround.position = Vector2(upcomingGround.getEndPosition().x,bottomScreenY)
 	
 	add_child(currentGround)
 	add_child(upcomingGround)
@@ -93,8 +93,8 @@ func handleMainCamera():
 	main_camera.position = Vector2(camera_position_x, clamped_camera_position_y)
 
 func _physics_process(delta):
-	if main_camera.position.x > screenSize.length() + currentGround.position.x:
-		currentGround.position.x = futureGround.position.x + screenSize.length()
+	if main_camera.position.x > upcomingGround.getMidPosition().x:
+		currentGround.position.x = futureGround.getEndPosition().x
 		_generateCoins(currentGround.position.x)
 		_generateCrows(currentGround.position.x)
 		_generatePowerUps(currentGround.position.x)
