@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvd8phnr72gyq"
-path="res://.godot/imported/dead_biggie.png-58c8aa05d407ab7a12d64d8c80739268.ctex"
+uid="uid://cscvpcfsdm8sd"
+path="res://.godot/imported/[Front] Ogu.png-d831bf0b52e7fb9dcf7dc3af8097bf73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/biggie/dead_biggie.png"
-dest_files=["res://.godot/imported/dead_biggie.png-58c8aa05d407ab7a12d64d8c80739268.ctex"]
+source_file="res://sprites/ogu_balloon/[Front] Ogu.png"
+dest_files=["res://.godot/imported/[Front] Ogu.png-d831bf0b52e7fb9dcf7dc3af8097bf73.ctex"]
 
 [params]
 

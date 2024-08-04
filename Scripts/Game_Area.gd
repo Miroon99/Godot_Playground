@@ -6,6 +6,8 @@ var player = player_obj.instantiate()
 var energybar_obj = preload("res://UI/EnergyBarUI.tscn")
 var energybar = energybar_obj.instantiate()
 
+var powerup_obj = preload("res://playable/batteryPowerup.tscn")
+
 var ground_obj = preload("res://playable/ground.tscn")
 
 @onready var cannon = $Cannon
@@ -88,6 +90,7 @@ func _physics_process(delta):
 		currentGround.position.x = futureGround.position.x + screenSize.length()
 		_generateCoins(currentGround.position.x)
 		_generateCrows(currentGround.position.x)
+		_generatePowerUps(currentGround.position.x)
 		var temporaryGround = futureGround
 		futureGround = currentGround
 		currentGround = upcomingGround
@@ -108,4 +111,13 @@ func _generateCrows(coinX):
 		var randY = randf_range(200,600)
 		crowObj.position = Vector2(randX,randY)
 		add_child(crowObj)
+
+func _generatePowerUps(startX):
+	var maxPowerups = randi() % 3
+	for i in range(maxPowerups):
+		var battery = powerup_obj.instantiate()
+		var spawnX = randf_range(startX, startX + screenSize.length())
+		var spawnY = randf_range(-300, 550)
+		battery.position = Vector2(spawnX, spawnY)
+		add_child(battery)
 

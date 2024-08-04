@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cscvpcfsdm8sd"
-path="res://.godot/imported/[Front] Ogu.png-9a063ce9c68b14a81ee5f20f5e32bca0.ctex"
+uid="uid://cdmghufl5ba5e"
+path="res://.godot/imported/battery_powerup_sprite.png-e77f94b85dd290df213b8be76443c658.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/[Front] Ogu.png"
-dest_files=["res://.godot/imported/[Front] Ogu.png-9a063ce9c68b14a81ee5f20f5e32bca0.ctex"]
+source_file="res://sprites/battery_powerup_sprite.png"
+dest_files=["res://.godot/imported/battery_powerup_sprite.png-e77f94b85dd290df213b8be76443c658.ctex"]
 
 [params]
 
