@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://sxwd0cvfby1g"]
+[gd_scene load_steps=5 format=3 uid="uid://daxkwdy4o2xjy"]
 
 [ext_resource type="Texture2D" uid="uid://mdkxjnpgmeh0" path="res://sprites/biggie.png" id="1_b0bns"]
 
@@ -30,4 +30,4 @@ animations = [{
 position = Vector2(-14, -114)
 scale = Vector2(0.492444, 0.516444)
 sprite_frames = SubResource("SpriteFrames_rj7pl")
-frame_progress = 0.195055
+frame_progress = 0.692637

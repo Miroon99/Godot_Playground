@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://d34licv2o0s87"]
+[gd_scene load_steps=12 format=3 uid="uid://b56dt2llxdxmm"]
 
+[ext_resource type="Script" path="res://playable/Menu.gd" id="1_12w0w"]
 [ext_resource type="Texture2D" uid="uid://ry4vlepxfdxy" path="res://assets/backgrounds/PNG/Separated Backgrounds/Background-Ice/Background.png" id="1_w7gjm"]
+[ext_resource type="Texture2D" uid="uid://cosb02bhi1kgi" path="res://assets/Scroll_panel.png" id="2_758ql"]
 [ext_resource type="Texture2D" uid="uid://kdxn8h4vn48i" path="res://sprites/ground.png" id="2_ayp7l"]
 [ext_resource type="Theme" uid="uid://b83aq4dyolp0j" path="res://assets/button/ButtonPlay.tres" id="3_s3ag5"]
 [ext_resource type="Script" path="res://Scripts/clickPlay.gd" id="4_owg2q"]
 [ext_resource type="AudioStream" uid="uid://c8gflu3g74liw" path="res://assets/audio/sfx/click1.wav" id="5_2eumb"]
 [ext_resource type="Script" path="res://Scripts/LeaderboardClick.gd" id="7_blgad"]
-[ext_resource type="AudioStream" uid="uid://2uofjpdclexy" path="res://assets/audio/music/Kevin MacLeod - Monkeys Spinning Monkeys.mp3" id="9_mx4th"]
+[ext_resource type="AudioStream" uid="uid://bs122tvfns5mq" path="res://assets/audio/music/Busybody.mp3" id="8_yrnp8"]
+[ext_resource type="PackedScene" uid="uid://c6mn2ij8k2fqt" path="res://playable/bird.tscn" id="10_dhueb"]
+[ext_resource type="PackedScene" path="res://playable/parallax_scrolling_scene.tscn" id="13_fmpf3"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -17,11 +21,20 @@ offset_right = -0.152054
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_12w0w")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2, 517)
 
+[node name="MenuBackground" type="TextureRect" parent="StaticBody2D"]
+offset_left = 600.0
+offset_top = -359.0
+offset_right = 1079.0
+offset_bottom = -99.0
+texture = ExtResource("2_758ql")
+
 [node name="TextureRect2" type="TextureRect" parent="StaticBody2D"]
+visible = false
 offset_left = -138.0
 offset_top = -588.0
 offset_right = 5622.0
@@ -41,9 +54,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 621.0
-offset_top = 1.0
-offset_bottom = -145.0
+offset_left = 666.0
+offset_top = 212.0
+offset_right = -132.0
+offset_bottom = -278.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -70,20 +84,32 @@ position = Vector2(0, -126)
 stream = ExtResource("5_2eumb")
 
 [node name="Setting" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_s3ag5")
 text = " Setting"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_s3ag5")
 text = " Exit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_mx4th")
+stream = ExtResource("8_yrnp8")
 autoplay = true
+
+[node name="Bird" parent="." instance=ExtResource("10_dhueb")]
+position = Vector2(248, 316)
+
+[node name="ParallaxScrollingScene" parent="." instance=ExtResource("13_fmpf3")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 327)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer/Play" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Leaderboard" to="MarginContainer/VBoxContainer/Leaderboard" method="_on_pressed"]
