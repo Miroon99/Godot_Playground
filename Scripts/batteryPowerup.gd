@@ -3,6 +3,7 @@ extends Area2D
 @export var spritePath: Texture
 @export var spriteAnimation: SpriteFrames
 @export var bouncing = false
+@onready var sound = $collectSound
 
 func _ready():
 	pass # Replace with function body.
@@ -32,6 +33,6 @@ func _on_body_entered(body):
 	self.visible = false
 	$CoinCollectedSound.play()
 	body.addEnergy(charge_amount)
-	$CoinCollectedSound.finished.connect(queue_free)
-	pass
+	sound.play()
+	sound.finished.connect(queue_free)
 

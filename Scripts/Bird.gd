@@ -39,7 +39,7 @@ func handleFlap(delta):
 	if dead or currentEnergy <= 0:
 		return
 
-	if Input.is_action_pressed("bird_push"):
+	if Input.is_action_pressed("cannon_fire"):
 		birdSprite2D.play("flap")
 		flap_energy += gradual_speed * delta
 		flap_energy = clamp(flap_energy, 0, max_flap_energy)
@@ -49,7 +49,7 @@ func handleFlap(delta):
 		currentEnergy -= 10 * delta
 		addEnergy(-energy_per_flap)
 		
-	if Input.is_action_just_released("bird_push"):
+	if Input.is_action_just_released("cannon_fire"):
 		birdSprite2D.play("idle")
 		flap_energy = 0
 		

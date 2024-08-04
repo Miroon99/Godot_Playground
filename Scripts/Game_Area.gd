@@ -2,19 +2,16 @@ extends Node2D
 
 var player_obj = preload("res://playable/bird.tscn")
 var player = player_obj.instantiate()
-
 var energybar_obj = preload("res://UI/EnergyBarUI.tscn")
 var energybar = energybar_obj.instantiate()
-
 var powerup_obj = preload("res://playable/batteryPowerup.tscn")
-
 var ground_obj = preload("res://playable/ground.tscn")
 
 @onready var cannon = $Cannon
 @onready var main_camera = $Camera2D
 @onready var coinCountLabel = $CanvasLayer/Label
 
-var gameRunning: bool
+var gameRunning: bool = false
 var gameOver: bool
 var scroll = 0
 var screenSize: Vector2i
@@ -60,19 +57,26 @@ func _process(delta):
 	handleMainCamera()
 	
 	if Input.is_action_just_pressed("cannon_fire"):
-		player.position = cannon.getPlayerSpawnPosition()
-		player.rotation = cannon.getBodyRotation()
-		add_child(player)
-		move_child(player, 1000)
-		player.flyFromCannonFire(1000)
-		isGameStart = true
+		handleCannonFire()
 		
-		energybar.attachPlayer(player)
-		$CanvasLayer.add_child(energybar)
+func handleCannonFire():
+	if gameRunning:
+		return
+		
+	player.position = cannon.getPlayerSpawnPosition()
+	player.rotation = cannon.getBodyRotation()
+	add_child(player)
+	move_child(player, 100)
+	move_child(cannon, 90)
+	cannon.doShoot()
+	player.flyFromCannonFire(1000)
+	gameRunning = true
+	energybar.attachPlayer(player)
+	
+	$CanvasLayer.add_child(energybar)
 
-var isGameStart = false
 func handleMainCamera():
-	if !isGameStart:
+	if !gameRunning:
 		return
 
 	var camera_width = main_camera.get_viewport_rect().size.x
