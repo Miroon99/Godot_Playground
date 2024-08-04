@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvd8phnr72gyq"
-path="res://.godot/imported/dead_biggie.png-58c8aa05d407ab7a12d64d8c80739268.ctex"
+path="res://.godot/imported/dead_biggie.png-e0957f6e939507184b36b50f1ae295e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/biggie/dead_biggie.png"
-dest_files=["res://.godot/imported/dead_biggie.png-58c8aa05d407ab7a12d64d8c80739268.ctex"]
+source_file="res://sprites/Biggie/dead_biggie.png"
+dest_files=["res://.godot/imported/dead_biggie.png-e0957f6e939507184b36b50f1ae295e5.ctex"]
 
 [params]
 

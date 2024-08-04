@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d34licv2o0s87"]
+[gd_scene load_steps=11 format=3 uid="uid://d34licv2o0s87"]
 
 [ext_resource type="Script" path="res://playable/Menu.gd" id="1_12w0w"]
 [ext_resource type="Texture2D" uid="uid://ry4vlepxfdxy" path="res://assets/backgrounds/PNG/Separated Backgrounds/Background-Ice/Background.png" id="1_w7gjm"]
@@ -9,8 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c8gflu3g74liw" path="res://assets/audio/sfx/click1.wav" id="5_2eumb"]
 [ext_resource type="Script" path="res://Scripts/LeaderboardClick.gd" id="7_blgad"]
 [ext_resource type="AudioStream" uid="uid://bs122tvfns5mq" path="res://assets/audio/music/Busybody.mp3" id="8_yrnp8"]
-[ext_resource type="PackedScene" path="res://playable/biggie.tscn" id="10_dh0ng"]
-[ext_resource type="PackedScene" uid="uid://mbm6s0n7oaf3" path="res://playable/parallax_scrolling_scene.tscn" id="13_fmpf3"]
+[ext_resource type="PackedScene" path="res://playable/parallax_scrolling_scene.tscn" id="13_fmpf3"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -32,40 +31,40 @@ autoplay = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 327)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
-position = Vector2(-577, 190)
-
-[node name="MenuBackground" type="TextureRect" parent="Camera2D/StaticBody2D"]
-offset_left = 600.0
-offset_top = -359.0
-offset_right = 1079.0
-offset_bottom = -99.0
+[node name="MenuBackground" type="TextureRect" parent="Camera2D"]
+offset_left = -244.0
+offset_top = -129.0
+offset_right = 235.0
+offset_bottom = 131.0
 texture = ExtResource("2_758ql")
 
-[node name="TextureRect2" type="TextureRect" parent="Camera2D/StaticBody2D"]
+[node name="TextureRect2" type="TextureRect" parent="Camera2D"]
 visible = false
-offset_left = -138.0
-offset_top = -588.0
-offset_right = 5622.0
-offset_bottom = 2652.0
+offset_left = -982.0
+offset_top = -358.0
+offset_right = 4778.0
+offset_bottom = 2882.0
 texture = ExtResource("1_w7gjm")
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/StaticBody2D"]
-offset_left = 2.0
-offset_top = -2.0
-offset_right = 1151.0
-offset_bottom = 126.0
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+visible = false
+offset_left = -842.0
+offset_top = 228.0
+offset_right = 307.0
+offset_bottom = 356.0
 texture = ExtResource("2_ayp7l")
 stretch_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 87.0
-offset_top = -115.0
-offset_right = 441.0
-offset_bottom = 46.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -80.5
+offset_right = 177.0
+offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -106,10 +105,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_s3ag5")
 text = " Exit"
-
-[node name="biggie" parent="Camera2D" instance=ExtResource("10_dh0ng")]
-position = Vector2(-287, 34)
-scale = Vector2(0.5, 0.5)
 
 [connection signal="pressed" from="Camera2D/MarginContainer/VBoxContainer/Play" to="Camera2D/MarginContainer/VBoxContainer/Play" method="_on_pressed"]
 [connection signal="pressed" from="Camera2D/MarginContainer/VBoxContainer/Leaderboard" to="Camera2D/MarginContainer/VBoxContainer/Leaderboard" method="_on_pressed"]
