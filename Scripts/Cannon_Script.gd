@@ -10,9 +10,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("cannon_fire"):
-		doShoot()
-		
 	cannon_rotation(delta)
 
 var min_rotate = -90
@@ -37,3 +34,5 @@ func getPlayerSpawnPosition():
 	
 func doShoot():
 	shootAnimation.play("fire")
+	$shootSound.play()
+	

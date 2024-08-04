@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxt4m6he8mb7o"]
+[gd_scene load_steps=5 format=3 uid="uid://devbgfbp5emkm"]
 
 [ext_resource type="Script" path="res://Scripts/batteryPowerup.gd" id="1_ftser"]
 [ext_resource type="Texture2D" uid="uid://cdmghufl5ba5e" path="res://sprites/battery_powerup_sprite.png" id="2_hlppn"]

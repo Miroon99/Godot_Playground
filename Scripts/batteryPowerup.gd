@@ -8,7 +8,6 @@ extends Area2D
 func _ready():
 	pass # Replace with function body.
 
-
 var maxMovePixel = 5
 var originalPosition = position
 var moveDirection = 1
@@ -31,7 +30,6 @@ func handleBounce(delta):
 var charge_amount = randi() % 10 + 1
 func _on_body_entered(body):
 	self.visible = false
-	$CoinCollectedSound.play()
 	body.addEnergy(charge_amount)
 	sound.play()
 	sound.finished.connect(queue_free)
