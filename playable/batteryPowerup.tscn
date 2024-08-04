@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://devbgfbp5emkm"]
+[gd_scene load_steps=5 format=3 uid="uid://cxt4m6he8mb7o"]
 
 [ext_resource type="Script" path="res://Scripts/batteryPowerup.gd" id="1_ftser"]
 [ext_resource type="Texture2D" uid="uid://cdmghufl5ba5e" path="res://sprites/battery_powerup_sprite.png" id="2_hlppn"]
-[ext_resource type="AudioStream" uid="uid://na5xlbmok6j4" path="res://assets/audio/sfx/pickupCoin1.wav" id="3_e65c3"]
+[ext_resource type="AudioStream" uid="uid://cx4b8umins8g8" path="res://assets/audio/sfx/powerUp2.wav" id="3_4aw1r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ajnd6"]
 radius = 18.0
@@ -21,6 +21,6 @@ scale = Vector2(0.144915, 0.144915)
 texture = ExtResource("2_hlppn")
 
 [node name="CoinCollectedSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_e65c3")
+stream = ExtResource("3_4aw1r")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -10,5 +10,6 @@ func _ready():
 func _on_body_entered(body):
 	self.visible = false
 	$CrowStrikeSound.play()
+	body.addEnergy(-5)
 	$CrowStrikeSound.finished.connect(queue_free)
 	pass
