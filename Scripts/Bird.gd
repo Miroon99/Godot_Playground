@@ -114,5 +114,5 @@ func _on_rest_timer_timeout():
 	$restTimer.stop()
 	isRestingSignal.emit(false, null)
 	isResting = false
-	velocity = onRestingVelocity
+	velocity = Vector2(500, 0)
 	

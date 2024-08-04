@@ -17,8 +17,8 @@ func _process(delta):
 func _on_body_entered(body):
 	if !body.is_in_group("player") and hasUsed:
 		return
+
 	hasUsed = true
-	
 	body.setRestingAt(self)
 	
 var moveSpeed = randi() % 100 + 50
