@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c6mn2ij8k2fqt"]
 
 [ext_resource type="Script" path="res://Scripts/Bird.gd" id="1_7ls73"]
-[ext_resource type="Texture2D" uid="uid://dkty8qbhowpko" path="res://sprites/biggie/biggie_idle.png" id="2_lnsye"]
-[ext_resource type="Texture2D" uid="uid://cvd8phnr72gyq" path="res://sprites/biggie/dead_biggie.png" id="2_tiv1k"]
-[ext_resource type="Texture2D" uid="uid://bxrq6ce23mr0u" path="res://sprites/biggie/biggie_second.png" id="3_evs4m"]
-[ext_resource type="Texture2D" uid="uid://bg3lmi63qbbmn" path="res://sprites/biggie/biggie_third.png" id="4_putsb"]
+[ext_resource type="Texture2D" uid="uid://dkty8qbhowpko" path="res://sprites/Biggie/biggie_idle.png" id="2_lnsye"]
+[ext_resource type="Texture2D" uid="uid://cvd8phnr72gyq" path="res://sprites/Biggie/dead_biggie.png" id="2_tiv1k"]
+[ext_resource type="Texture2D" uid="uid://bxrq6ce23mr0u" path="res://sprites/Biggie/biggie_second.png" id="3_evs4m"]
+[ext_resource type="Texture2D" uid="uid://bg3lmi63qbbmn" path="res://sprites/Biggie/biggie_third.png" id="4_putsb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5r1l6"]
 animations = [{

@@ -30,6 +30,8 @@ func handleBounce(delta):
 var charge_amount = randi() % 10 + 1
 func _on_body_entered(body):
 	self.visible = false
+	$CoinCollectedSound.play()
 	body.addEnergy(charge_amount)
-	queue_free()
+	$CoinCollectedSound.finished.connect(queue_free)
+	pass
 
