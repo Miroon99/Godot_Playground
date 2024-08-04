@@ -7,6 +7,7 @@ var energybar = energybar_obj.instantiate()
 var powerup_obj = preload("res://playable/batteryPowerup.tscn")
 var ground_obj = preload("res://playable/ground.tscn")
 var restartUIobj = preload("res://UI/dead_restart/restart_UI.tscn")
+var ogu_obj = preload("res://playable/ogu_balloon.tscn")
 
 @onready var cannon = $Cannon
 @onready var main_camera = $Camera2D
@@ -27,6 +28,7 @@ var goldCoin = preload("res://playable/goldcoin.tscn")
 var crow = preload("res://playable/crow.tscn")
 
 func _ready():
+	randomize()
 	screenSize = get_window().size
 	addGround()
 	coinCountLabel.text = "--- "
@@ -99,35 +101,12 @@ func _physics_process(delta):
 		_generateCoins(currentGround.position.x)
 		_generateCrows(currentGround.position.x)
 		_generatePowerUps(currentGround.position.x)
+		if   randi_range(1, 6) == 4:
+			_generateOguBalloon(currentGround.position.x)
 		var temporaryGround = futureGround
 		futureGround = currentGround
 		currentGround = upcomingGround
 		upcomingGround = temporaryGround
-		#
-#func _generateCoins(coinX):
-	#for  i in range (6) :
-		#var gold_coin = goldCoin.instantiate()
-		#var coin_rand_x = randf_range(coinX, coinX  + screenSize.length())
-		#var coin_rand_y = randf_range(150,450)
-		#gold_coin.position = Vector2(coin_rand_x,coin_rand_y)
-		#add_child(gold_coin)
-		#
-#func _generateCrows(coinX):
-	#for  i in range (crowCrowdPerArea) :
-		#var crowObj = crow.instantiate()
-		#var randX = randf_range(coinX, coinX  + screenSize.length())
-		#var randY = randf_range(200,600)
-		#crowObj.position = Vector2(randX,randY)
-		#add_child(crowObj)
-#
-#func _generatePowerUps(startX):
-	#var maxPowerups = randi() % 3
-	#for i in range(maxPowerups):
-		#var battery = powerup_obj.instantiate()
-		#var spawnX = randf_range(startX, startX + screenSize.length())
-		#var spawnY = randf_range(-300, 550)
-		#battery.position = Vector2(spawnX, spawnY)
-		#add_child(battery)
 		
 func _generateCoins(coinX):
 	for i in range(6):
@@ -153,6 +132,13 @@ func _generatePowerUps(startX):
 		battery.position = position
 		placed_positions.append(position)
 		add_child(battery)
+		
+func _generateOguBalloon(startX):
+	var battery = ogu_obj.instantiate()
+	var position = _get_non_overlapping_position(startX, -300, 0)
+	battery.position = position
+	placed_positions.append(position)
+	add_child(battery)
 
 func _get_non_overlapping_position(startX, minY, maxY):
 	var max_attempts = 100
