@@ -20,8 +20,10 @@ var groundHeight: int
 var currentGround: Node
 var upcomingGround: Node
 var futureGround: Node
+var crowCrowdPerArea = 1
 
 var goldCoin = preload("res://playable/goldcoin.tscn")
+var crow = preload("res://playable/crow.tscn")
 
 func _ready():
 	screenSize = get_window().size
@@ -85,6 +87,7 @@ func _physics_process(delta):
 	if main_camera.position.x > screenSize.length() + currentGround.position.x:
 		currentGround.position.x = futureGround.position.x + screenSize.length()
 		_generateCoins(currentGround.position.x)
+		_generateCrows(currentGround.position.x)
 		var temporaryGround = futureGround
 		futureGround = currentGround
 		currentGround = upcomingGround
@@ -97,5 +100,12 @@ func _generateCoins(coinX):
 		var coin_rand_y = randf_range(150,450)
 		gold_coin.position = Vector2(coin_rand_x,coin_rand_y)
 		add_child(gold_coin)
-		move_child(gold_coin, 1)
+		
+func _generateCrows(coinX):
+	for  i in range (crowCrowdPerArea) :
+		var crowObj = crow.instantiate()
+		var randX = randf_range(coinX, coinX  + screenSize.length())
+		var randY = randf_range(200,600)
+		crowObj.position = Vector2(randX,randY)
+		add_child(crowObj)
 
