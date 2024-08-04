@@ -66,6 +66,7 @@ func handleCannonFire():
 		
 	player.position = cannon.getPlayerSpawnPosition()
 	player.rotation = cannon.getBodyRotation()
+	player.add_to_group("player")
 	add_child(player)
 	move_child(player, 100)
 	move_child(cannon, 90)

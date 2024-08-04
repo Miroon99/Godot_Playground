@@ -8,6 +8,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_body_entered(body):
+	if !body.is_in_group("player"):
+		return
+
 	self.visible = false
 	$CrowStrikeSound.play()
 	body.addEnergy(-5)
