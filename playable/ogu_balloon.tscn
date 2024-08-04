@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/ogu_balloon.gd" id="1_7hmge"]
 [ext_resource type="Texture2D" uid="uid://c351dj1sgyeq4" path="res://sprites/ogu_balloon/ogu_balloon_1.png" id="2_3yd4d"]
-[ext_resource type="Texture2D" uid="uid://cscvpcfsdm8sd" path="res://sprites/[Front] Ogu.png" id="3_hqxcx"]
+[ext_resource type="Texture2D" uid="uid://cscvpcfsdm8sd" path="res://sprites/ogu_balloon/[Front] Ogu.png" id="3_hqxcx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5jg1c"]
 radius = 61.0
