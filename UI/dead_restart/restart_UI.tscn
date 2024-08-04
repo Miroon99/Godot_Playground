@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://cf62proyfn18s"]
+
+[ext_resource type="Script" path="res://UI/dead_restart/restart_UI.gd" id="1_8b28x"]
+[ext_resource type="Texture2D" uid="uid://di1d8isn65igq" path="res://UI/dead_restart/restart_button.png" id="1_covs0"]
+[ext_resource type="Texture2D" uid="uid://bf42018w4ului" path="res://UI/dead_restart/home_button.png" id="2_p1ky5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dermd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ax34v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p7wtj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tx5wb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_malsm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8b28x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -67.0
+offset_right = 802.0
+offset_bottom = 430.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+alignment = 1
+
+[node name="home" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dermd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ax34v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p7wtj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tx5wb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_malsm")
+icon = ExtResource("2_p1ky5")
+icon_alignment = 1
+
+[node name="restart" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dermd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ax34v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p7wtj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tx5wb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_malsm")
+icon = ExtResource("1_covs0")

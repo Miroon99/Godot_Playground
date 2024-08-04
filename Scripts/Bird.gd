@@ -11,6 +11,7 @@ var default_rotation = 0
 @export var maxEnergy = 100
 @onready var currentEnergy = maxEnergy
 signal energyChanged
+signal birdDead
 
 func _ready():
 	birdSprite2D.play("idle")
@@ -68,6 +69,8 @@ func handleGravity(delta):
 	elif play:
 		dead = true
 		play = false
+		$hitGroundPlayer.play()
+		birdDead.emit()
 	elif !play:
 		velocity.x = move_toward(velocity.x, 0, 10)	
 

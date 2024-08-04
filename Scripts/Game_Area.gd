@@ -6,6 +6,7 @@ var energybar_obj = preload("res://UI/EnergyBarUI.tscn")
 var energybar = energybar_obj.instantiate()
 var powerup_obj = preload("res://playable/batteryPowerup.tscn")
 var ground_obj = preload("res://playable/ground.tscn")
+var restartUIobj = preload("res://UI/dead_restart/restart_UI.tscn")
 
 @onready var cannon = $Cannon
 @onready var main_camera = $Camera2D
@@ -68,11 +69,12 @@ func handleCannonFire():
 	add_child(player)
 	move_child(player, 100)
 	move_child(cannon, 90)
+	
 	cannon.doShoot()
 	player.flyFromCannonFire(1000)
 	gameRunning = true
 	energybar.attachPlayer(player)
-	
+	player.birdDead.connect(showRestartButton)
 	$CanvasLayer.add_child(energybar)
 
 func handleMainCamera():
@@ -169,3 +171,15 @@ func _is_position_valid(position):
 		if position.distance_to(placed_position) < min_distance:
 			return false
 	return true
+	
+func showRestartButton():
+	var restartUI = restartUIobj.instantiate()
+	restartUI.restartAction = gotoRestartScene
+	restartUI.homeAction = gotoHomeScene
+	$CanvasLayer.add_child(restartUI)
+
+func gotoHomeScene():
+	get_tree().change_scene_to_file("res://playable/Menu.tscn")
+	
+func gotoRestartScene():
+	get_tree().reload_current_scene()
