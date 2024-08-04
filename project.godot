@@ -19,6 +19,11 @@ boot_splash/bg_color=Color(0.133333, 0.615686, 0.94902, 1)
 
 window/stretch/mode="canvas_items"
 
+[autoload]
+
+Global="*res://global.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+
 [input]
 
 bird_push={

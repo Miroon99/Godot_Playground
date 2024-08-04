@@ -11,6 +11,7 @@ size = Vector2(2310, 100)
 [node name="Playground" type="Node2D"]
 
 [node name="staticBody2D" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(0, 577)
 scale = Vector2(0.5, 0.5)
 
