@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwdtblf8nftbo"]
+[gd_scene load_steps=5 format=3 uid="uid://dvourcrndlrjk"]
 
 [ext_resource type="Script" path="res://Scripts/ogu_balloon.gd" id="1_7hmge"]
 [ext_resource type="Texture2D" uid="uid://c351dj1sgyeq4" path="res://sprites/ogu_balloon/ogu_balloon_1.png" id="2_3yd4d"]
