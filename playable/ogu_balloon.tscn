@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvourcrndlrjk"]
+[gd_scene load_steps=5 format=3 uid="uid://dwdtblf8nftbo"]
 
 [ext_resource type="Script" path="res://Scripts/ogu_balloon.gd" id="1_7hmge"]
 [ext_resource type="Texture2D" uid="uid://c351dj1sgyeq4" path="res://sprites/ogu_balloon/ogu_balloon_1.png" id="2_3yd4d"]
@@ -8,7 +8,7 @@
 radius = 61.0
 height = 334.0
 
-[node name="Node2D" type="Area2D"]
+[node name="ogu_balloon" type="Area2D"]
 script = ExtResource("1_7hmge")
 
 [node name="BallonSprite" type="Sprite2D" parent="."]
@@ -24,3 +24,11 @@ texture = ExtResource("3_hqxcx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -105)
 shape = SubResource("CapsuleShape2D_5jg1c")
+
+[node name="focus_area" type="Node2D" parent="."]
+position = Vector2(0, -105)
+
+[node name="resting_area" type="Node2D" parent="."]
+position = Vector2(0, -292)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

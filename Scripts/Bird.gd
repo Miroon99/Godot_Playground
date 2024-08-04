@@ -12,6 +12,11 @@ var default_rotation = 0
 @onready var currentEnergy = maxEnergy
 signal energyChanged
 signal birdDead
+signal isRestingSignal
+
+var isResting = false
+var onRestingVelocity: Vector2
+var currentRestingParentObject: Node2D
 
 func _ready():
 	birdSprite2D.play("idle")
@@ -30,6 +35,10 @@ var flap_energy = 0
 var max_flap_energy = 20
 var gradual_speed = 150
 func _physics_process(delta):
+	if isResting:
+		handleResting(delta)
+		return
+	
 	handleGravity(delta)
 	handleFlap(delta)
 	look_at(transform.origin + velocity)
@@ -72,7 +81,7 @@ func handleGravity(delta):
 		$hitGroundPlayer.play()
 		birdDead.emit()
 	elif !play:
-		velocity.x = move_toward(velocity.x, 0, 10)	
+		velocity.x = move_toward(velocity.x, 0, 10)
 
 func addEnergy(amount):
 	currentEnergy += amount
@@ -81,3 +90,29 @@ func addEnergy(amount):
 func collectCoin(count: int):
 	coinsCollected += count
 	get_parent().updateCollectedCoin(coinsCollected)
+	
+func setRestingAt(parentObject):
+	isResting = true
+	onRestingVelocity = velocity
+	rotation = 0
+	position = parentObject.getRestingPosition()
+	currentRestingParentObject = parentObject
+	var restTimer = $restTimer
+	restTimer.wait_time = randi() % 7 + 3
+	restTimer.start()
+	isRestingSignal.emit(true, parentObject.getFocusObject())
+	
+var charging_speed = 1
+func handleResting(delta):
+	if currentRestingParentObject == null:
+		return
+
+	addEnergy(charging_speed * delta)
+	position = currentRestingParentObject.getRestingPosition()
+
+func _on_rest_timer_timeout():
+	$restTimer.stop()
+	isRestingSignal.emit(false, null)
+	isResting = false
+	velocity = onRestingVelocity
+	

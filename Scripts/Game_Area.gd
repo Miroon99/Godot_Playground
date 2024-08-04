@@ -21,6 +21,7 @@ var groundHeight: int
 var currentGround: Node
 var upcomingGround: Node
 var futureGround: Node
+var focusObject: Node2D
 var crowCrowdPerArea = 1
 var placed_positions = []
 
@@ -66,6 +67,8 @@ func handleCannonFire():
 	if gameRunning:
 		return
 		
+	focusObject = player
+	player.isRestingSignal.connect(getRestingSignal)
 	player.position = cannon.getPlayerSpawnPosition()
 	player.rotation = cannon.getBodyRotation()
 	player.add_to_group("player")
@@ -81,17 +84,18 @@ func handleCannonFire():
 	$CanvasLayer.add_child(energybar)
 
 func handleMainCamera():
-	if !gameRunning:
+	print("handle camera")
+	print(focusObject)
+	if !gameRunning or focusObject == null:
 		return
-
 	var camera_width = main_camera.get_viewport_rect().size.x
 	var camera_height = main_camera.get_viewport_rect().size.y
 	
 	var x_margin = 100
-	var camera_position_x = (player.global_position.x + camera_width * 0.5) - x_margin
+	var camera_position_x = (focusObject.global_position.x + camera_width * 0.5) - x_margin
 	
 	var max_camera_to_ground = ($Ground.global_position.y + 30) - camera_height * 0.5
-	var clamped_camera_position_y = clamp(player.global_position.y, player.global_position.y, max_camera_to_ground)
+	var clamped_camera_position_y = clamp(focusObject.global_position.y, focusObject.global_position.y, max_camera_to_ground)
 	
 	main_camera.position = Vector2(camera_position_x, clamped_camera_position_y)
 
@@ -101,7 +105,8 @@ func _physics_process(delta):
 		_generateCoins(currentGround.position.x)
 		_generateCrows(currentGround.position.x)
 		_generatePowerUps(currentGround.position.x)
-		if   randi_range(1, 6) == 4:
+		#if   randi_range(1, 6) == 4:
+		if true:
 			_generateOguBalloon(currentGround.position.x)
 		var temporaryGround = futureGround
 		futureGround = currentGround
@@ -170,3 +175,10 @@ func gotoHomeScene():
 	
 func gotoRestartScene():
 	get_tree().reload_current_scene()
+	
+func getRestingSignal(isResting, object):
+	if !isResting or object == null:
+		focusObject = player
+		return
+		
+	focusObject = object
