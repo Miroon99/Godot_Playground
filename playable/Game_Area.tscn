@@ -17,7 +17,7 @@ visible = false
 position = Vector2(348, 414)
 
 [node name="Cannon" parent="." instance=ExtResource("4_ktioi")]
-position = Vector2(63, 544)
+position = Vector2(63, 553)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 327)

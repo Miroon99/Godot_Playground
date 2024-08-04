@@ -69,6 +69,7 @@ script = ExtResource("1_i8kv6")
 
 [node name="CrowStrikeSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_iwp80")
+volume_db = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.5, -12.5)
