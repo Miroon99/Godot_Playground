@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d34licv2o0s87"]
+[gd_scene load_steps=12 format=3 uid="uid://b56dt2llxdxmm"]
 
 [ext_resource type="Script" path="res://playable/Menu.gd" id="1_12w0w"]
 [ext_resource type="Texture2D" uid="uid://ry4vlepxfdxy" path="res://assets/backgrounds/PNG/Separated Backgrounds/Background-Ice/Background.png" id="1_w7gjm"]
@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c8gflu3g74liw" path="res://assets/audio/sfx/click1.wav" id="5_2eumb"]
 [ext_resource type="Script" path="res://Scripts/LeaderboardClick.gd" id="7_blgad"]
 [ext_resource type="AudioStream" uid="uid://bs122tvfns5mq" path="res://assets/audio/music/Busybody.mp3" id="8_yrnp8"]
-[ext_resource type="PackedScene" uid="uid://c6mn2ij8k2fqt" path="res://playable/bird.tscn" id="10_dhueb"]
+[ext_resource type="PackedScene" uid="uid://daxkwdy4o2xjy" path="res://playable/biggie.tscn" id="10_dh0ng"]
 [ext_resource type="PackedScene" path="res://playable/parallax_scrolling_scene.tscn" id="13_fmpf3"]
 
 [node name="Menu" type="Control"]
@@ -101,15 +101,14 @@ text = " Exit"
 stream = ExtResource("8_yrnp8")
 autoplay = true
 
-[node name="Bird" parent="." instance=ExtResource("10_dhueb")]
-position = Vector2(248, 316)
-
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource("13_fmpf3")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 327)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="biggie" parent="." instance=ExtResource("10_dh0ng")]
+position = Vector2(292, 361)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer/Play" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Leaderboard" to="MarginContainer/VBoxContainer/Leaderboard" method="_on_pressed"]
