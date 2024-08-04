@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d34licv2o0s87"]
+[gd_scene load_steps=12 format=3 uid="uid://b56dt2llxdxmm"]
 
 [ext_resource type="Script" path="res://playable/Menu.gd" id="1_12w0w"]
 [ext_resource type="Texture2D" uid="uid://ry4vlepxfdxy" path="res://assets/backgrounds/PNG/Separated Backgrounds/Background-Ice/Background.png" id="1_w7gjm"]
@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c8gflu3g74liw" path="res://assets/audio/sfx/click1.wav" id="5_2eumb"]
 [ext_resource type="Script" path="res://Scripts/LeaderboardClick.gd" id="7_blgad"]
 [ext_resource type="AudioStream" uid="uid://bs122tvfns5mq" path="res://assets/audio/music/Busybody.mp3" id="8_yrnp8"]
-[ext_resource type="PackedScene" path="res://playable/biggie.tscn" id="10_dh0ng"]
+[ext_resource type="PackedScene" uid="uid://daxkwdy4o2xjy" path="res://playable/biggie.tscn" id="10_dh0ng"]
 [ext_resource type="PackedScene" uid="uid://mbm6s0n7oaf3" path="res://playable/parallax_scrolling_scene.tscn" id="13_fmpf3"]
 
 [node name="Menu" type="Control"]

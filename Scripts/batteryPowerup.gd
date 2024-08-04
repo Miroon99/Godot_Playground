@@ -29,6 +29,9 @@ func handleBounce(delta):
 
 var charge_amount = randi() % 10 + 1
 func _on_body_entered(body):
+	if !body.is_in_group("player"):
+		return
+
 	self.visible = false
 	body.addEnergy(charge_amount)
 	sound.play()
