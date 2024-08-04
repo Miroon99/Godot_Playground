@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://6ilhxu8p2qvp"]
+
+[ext_resource type="Script" path="res://bam.gd" id="1_i67w0"]
+[ext_resource type="Texture2D" uid="uid://bto1k4ijn3wxj" path="res://sprites/bam.png" id="2_3oo2d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5sbf"]
+atlas = ExtResource("2_3oo2d")
+region = Rect2(0, 0, 2250, 2250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_103hn"]
+atlas = ExtResource("2_3oo2d")
+region = Rect2(2250, 0, 2250, 2250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8sbb"]
+atlas = ExtResource("2_3oo2d")
+region = Rect2(4500, 0, 2250, 2250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5j5q"]
+atlas = ExtResource("2_3oo2d")
+region = Rect2(6750, 0, 2250, 2250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7s2p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5sbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_103hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8sbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5j5q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="bam" type="Node2D"]
+script = ExtResource("1_i67w0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.05176e-05, 10)
+scale = Vector2(0.661778, 0.683556)
+sprite_frames = SubResource("SpriteFrames_q7s2p")
+frame_progress = 0.0116742

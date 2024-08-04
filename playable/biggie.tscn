@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://sxwd0cvfby1g"]
+
+[ext_resource type="Texture2D" uid="uid://mdkxjnpgmeh0" path="res://sprites/biggie.png" id="1_b0bns"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gavo2"]
+atlas = ExtResource("1_b0bns")
+region = Rect2(4500, 0, 2250, 2250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cke1s"]
+atlas = ExtResource("1_b0bns")
+region = Rect2(2250, 0, 2250, 2250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rj7pl"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_gavo2")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_cke1s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="biggie" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-14, -114)
+scale = Vector2(0.492444, 0.516444)
+sprite_frames = SubResource("SpriteFrames_rj7pl")
+frame_progress = 0.195055

@@ -23,6 +23,7 @@ var currentGround: Node
 var upcomingGround: Node
 var futureGround: Node
 var crowCrowdPerArea = 1
+var placed_positions = []
 
 var goldCoin = preload("res://playable/goldcoin.tscn")
 var crow = preload("res://playable/crow.tscn")
@@ -95,29 +96,72 @@ func _physics_process(delta):
 		futureGround = currentGround
 		currentGround = upcomingGround
 		upcomingGround = temporaryGround
+		#
+#func _generateCoins(coinX):
+	#for  i in range (6) :
+		#var gold_coin = goldCoin.instantiate()
+		#var coin_rand_x = randf_range(coinX, coinX  + screenSize.length())
+		#var coin_rand_y = randf_range(150,450)
+		#gold_coin.position = Vector2(coin_rand_x,coin_rand_y)
+		#add_child(gold_coin)
+		#
+#func _generateCrows(coinX):
+	#for  i in range (crowCrowdPerArea) :
+		#var crowObj = crow.instantiate()
+		#var randX = randf_range(coinX, coinX  + screenSize.length())
+		#var randY = randf_range(200,600)
+		#crowObj.position = Vector2(randX,randY)
+		#add_child(crowObj)
+#
+#func _generatePowerUps(startX):
+	#var maxPowerups = randi() % 3
+	#for i in range(maxPowerups):
+		#var battery = powerup_obj.instantiate()
+		#var spawnX = randf_range(startX, startX + screenSize.length())
+		#var spawnY = randf_range(-300, 550)
+		#battery.position = Vector2(spawnX, spawnY)
+		#add_child(battery)
 		
 func _generateCoins(coinX):
-	for  i in range (6) :
+	for i in range(6):
 		var gold_coin = goldCoin.instantiate()
-		var coin_rand_x = randf_range(coinX, coinX  + screenSize.length())
-		var coin_rand_y = randf_range(150,450)
-		gold_coin.position = Vector2(coin_rand_x,coin_rand_y)
+		var position = _get_non_overlapping_position(coinX, 150, 450)
+		gold_coin.position = position
+		placed_positions.append(position)
 		add_child(gold_coin)
-		
+
 func _generateCrows(coinX):
-	for  i in range (crowCrowdPerArea) :
+	for i in range(crowCrowdPerArea):
 		var crowObj = crow.instantiate()
-		var randX = randf_range(coinX, coinX  + screenSize.length())
-		var randY = randf_range(200,600)
-		crowObj.position = Vector2(randX,randY)
+		var position = _get_non_overlapping_position(coinX, 0, 400)
+		crowObj.position = position
+		placed_positions.append(position)
 		add_child(crowObj)
 
 func _generatePowerUps(startX):
 	var maxPowerups = randi() % 3
 	for i in range(maxPowerups):
 		var battery = powerup_obj.instantiate()
-		var spawnX = randf_range(startX, startX + screenSize.length())
-		var spawnY = randf_range(-300, 550)
-		battery.position = Vector2(spawnX, spawnY)
+		var position = _get_non_overlapping_position(startX, -300, 550)
+		battery.position = position
+		placed_positions.append(position)
 		add_child(battery)
 
+func _get_non_overlapping_position(startX, minY, maxY):
+	var max_attempts = 100
+	var position = Vector2()
+	for attempt in range(max_attempts):
+		var spawnX = randf_range(startX, startX + screenSize.length())
+		var spawnY = randf_range(minY, maxY)
+		position = Vector2(spawnX, spawnY)
+		if _is_position_valid(position):
+			return position
+	# If all attempts fail, return the last position (should be rare)
+	return position
+
+func _is_position_valid(position):
+	var min_distance = 70  # Minimum distance to consider as non-overlapping
+	for placed_position in placed_positions:
+		if position.distance_to(placed_position) < min_distance:
+			return false
+	return true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg3lmi63qbbmn"
-path="res://.godot/imported/biggie_third.png-87d2c12129073a81a79fbc7bf2fb6ce1.ctex"
+uid="uid://bto1k4ijn3wxj"
+path="res://.godot/imported/bam.png-4fb1710e341e223d7daf59372d8d5206.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Biggie/biggie_third.png"
-dest_files=["res://.godot/imported/biggie_third.png-87d2c12129073a81a79fbc7bf2fb6ce1.ctex"]
+source_file="res://sprites/bam.png"
+dest_files=["res://.godot/imported/bam.png-4fb1710e341e223d7daf59372d8d5206.ctex"]
 
 [params]
 
