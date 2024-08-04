@@ -105,8 +105,7 @@ func _physics_process(delta):
 		_generateCoins(currentGround.position.x)
 		_generateCrows(currentGround.position.x)
 		_generatePowerUps(currentGround.position.x)
-		#if   randi_range(1, 6) == 4:
-		if true:
+		if randi_range(1, 6) == 4:
 			_generateOguBalloon(currentGround.position.x)
 		var temporaryGround = futureGround
 		futureGround = currentGround
