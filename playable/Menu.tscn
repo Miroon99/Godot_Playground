@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b56dt2llxdxmm"]
+[gd_scene load_steps=12 format=3 uid="uid://d34licv2o0s87"]
 
 [ext_resource type="Script" path="res://playable/Menu.gd" id="1_12w0w"]
 [ext_resource type="Texture2D" uid="uid://ry4vlepxfdxy" path="res://assets/backgrounds/PNG/Separated Backgrounds/Background-Ice/Background.png" id="1_w7gjm"]
@@ -9,8 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://c8gflu3g74liw" path="res://assets/audio/sfx/click1.wav" id="5_2eumb"]
 [ext_resource type="Script" path="res://Scripts/LeaderboardClick.gd" id="7_blgad"]
 [ext_resource type="AudioStream" uid="uid://bs122tvfns5mq" path="res://assets/audio/music/Busybody.mp3" id="8_yrnp8"]
-[ext_resource type="PackedScene" uid="uid://daxkwdy4o2xjy" path="res://playable/biggie.tscn" id="10_dh0ng"]
-[ext_resource type="PackedScene" path="res://playable/parallax_scrolling_scene.tscn" id="13_fmpf3"]
+[ext_resource type="PackedScene" path="res://playable/biggie.tscn" id="10_dh0ng"]
+[ext_resource type="PackedScene" uid="uid://mbm6s0n7oaf3" path="res://playable/parallax_scrolling_scene.tscn" id="13_fmpf3"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -23,80 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_12w0w")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(2, 517)
-
-[node name="MenuBackground" type="TextureRect" parent="StaticBody2D"]
-offset_left = 600.0
-offset_top = -359.0
-offset_right = 1079.0
-offset_bottom = -99.0
-texture = ExtResource("2_758ql")
-
-[node name="TextureRect2" type="TextureRect" parent="StaticBody2D"]
-visible = false
-offset_left = -138.0
-offset_top = -588.0
-offset_right = 5622.0
-offset_bottom = 2652.0
-texture = ExtResource("1_w7gjm")
-
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
-offset_left = 2.0
-offset_top = -2.0
-offset_right = 1151.0
-offset_bottom = 126.0
-texture = ExtResource("2_ayp7l")
-stretch_mode = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 666.0
-offset_top = 212.0
-offset_right = -132.0
-offset_bottom = -278.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_s3ag5")
-text = " PLAY"
-script = ExtResource("4_owg2q")
-
-[node name="ButtonClickSound" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer/Play"]
-stream = ExtResource("5_2eumb")
-
-[node name="Leaderboard" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_s3ag5")
-text = " Leaderboard"
-script = ExtResource("7_blgad")
-
-[node name="ButtonClickSound2" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer/Leaderboard"]
-position = Vector2(0, -126)
-stream = ExtResource("5_2eumb")
-
-[node name="Setting" type="Button" parent="MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_s3ag5")
-text = " Setting"
-
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_s3ag5")
-text = " Exit"
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_yrnp8")
 autoplay = true
@@ -106,9 +32,84 @@ autoplay = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 327)
 
-[node name="biggie" parent="." instance=ExtResource("10_dh0ng")]
-position = Vector2(292, 361)
+[node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(-577, 190)
+
+[node name="MenuBackground" type="TextureRect" parent="Camera2D/StaticBody2D"]
+offset_left = 600.0
+offset_top = -359.0
+offset_right = 1079.0
+offset_bottom = -99.0
+texture = ExtResource("2_758ql")
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/StaticBody2D"]
+visible = false
+offset_left = -138.0
+offset_top = -588.0
+offset_right = 5622.0
+offset_bottom = 2652.0
+texture = ExtResource("1_w7gjm")
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/StaticBody2D"]
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 1151.0
+offset_bottom = 126.0
+texture = ExtResource("2_ayp7l")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 87.0
+offset_top = -115.0
+offset_right = 441.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="Camera2D/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_s3ag5")
+text = " PLAY"
+script = ExtResource("4_owg2q")
+
+[node name="ButtonClickSound" type="AudioStreamPlayer2D" parent="Camera2D/MarginContainer/VBoxContainer/Play"]
+stream = ExtResource("5_2eumb")
+
+[node name="Leaderboard" type="Button" parent="Camera2D/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_s3ag5")
+text = " Leaderboard"
+script = ExtResource("7_blgad")
+
+[node name="ButtonClickSound2" type="AudioStreamPlayer2D" parent="Camera2D/MarginContainer/VBoxContainer/Leaderboard"]
+position = Vector2(0, -126)
+stream = ExtResource("5_2eumb")
+
+[node name="Setting" type="Button" parent="Camera2D/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_s3ag5")
+text = " Setting"
+
+[node name="Exit" type="Button" parent="Camera2D/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_s3ag5")
+text = " Exit"
+
+[node name="biggie" parent="Camera2D" instance=ExtResource("10_dh0ng")]
+position = Vector2(-287, 34)
 scale = Vector2(0.5, 0.5)
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer/Play" method="_on_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Leaderboard" to="MarginContainer/VBoxContainer/Leaderboard" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/MarginContainer/VBoxContainer/Play" to="Camera2D/MarginContainer/VBoxContainer/Play" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/MarginContainer/VBoxContainer/Leaderboard" to="Camera2D/MarginContainer/VBoxContainer/Leaderboard" method="_on_pressed"]
